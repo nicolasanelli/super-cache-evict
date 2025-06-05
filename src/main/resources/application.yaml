@@ -1,4 +1,26 @@
-spring.application.name=cache-testing
+spring:
+  application:
+    name: cache-testing
+  cache:
+    type: redis
+    redis:
+      key-prefix: "cache-testing::"
+      use-key-prefix: on
+      time-to-live: 15m
+      cache-null-values: false
+      enable-statistics: on
+    cache-names: method-one,method-two
+  data:
+    redis:
+      repositories:
+        enabled: false
+      host: localhost
+      port: 6379
+      timeout: 2s
+      client-type: lettuce
 
-
-management.endpoints.web.exposure.include=health,cache,metrics
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "caches,metrics,health"
