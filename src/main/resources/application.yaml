@@ -23,4 +23,8 @@ management:
   endpoints:
     web:
       exposure:
-        include: "caches,metrics,health"
+        include: "caches,metrics,health,prometheus"
+  prometheus:
+    metrics:
+      export:
+        enabled: true

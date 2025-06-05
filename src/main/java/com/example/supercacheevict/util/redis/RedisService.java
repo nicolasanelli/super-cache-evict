@@ -14,10 +14,11 @@ public class RedisService {
         this.redisTemplate = redisTemplate;
     }
 
-    public void deleteByPattern(String pattern) {
+    public int deleteByPattern(String pattern) {
         Set<String> keys = redisTemplate.keys(pattern);
         if (!keys.isEmpty()) {
             redisTemplate.delete(keys);
         }
+        return keys.size();
     }
 }
