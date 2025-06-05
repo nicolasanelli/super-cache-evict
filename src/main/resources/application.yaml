@@ -1,0 +1,4 @@
+spring.application.name=cache-testing
+
+
+management.endpoints.web.exposure.include=health,cache,metrics
